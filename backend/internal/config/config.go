@@ -8,9 +8,11 @@ import (
 )
 
 type Config struct {
-	Port    string
-	AppName string
-	Env     string
+	Port         string
+	AppName      string
+	Env          string
+	RapidAPIKey  string
+	RapidAPIHost string
 }
 
 func LoadConfig() *Config {
@@ -20,9 +22,11 @@ func LoadConfig() *Config {
 	}
 
 	return &Config{
-		Port:    getEnv("PORT", "8080"),
-		AppName: getEnv("APP_NAME", "price-comparison-engine"),
-		Env:     getEnv("ENV", "development"),
+		Port:         getEnv("PORT", "8080"),
+		AppName:      getEnv("APP_NAME", "price-comparison-engine"),
+		Env:          getEnv("ENV", "development"),
+		RapidAPIKey:  getEnv("RAPIDAPI_KEY", ""),
+		RapidAPIHost: getEnv("RAPIDAPI_HOST", ""),
 	}
 }
 
